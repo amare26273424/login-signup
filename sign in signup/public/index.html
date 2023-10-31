@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login and Signup</title>
+  <style>
+    body {
+      background-color: #f5f5f5;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    #login-form, #signup-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 300px;
+      background-color: #f2f2f2;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+    }
+
+    input[type="text"], input[type="phone"], input[type="tel"], input[type="password"], button[type="submit"] {
+      width: 100%;
+      height: 40px;
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    button[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+
+    #signup-form {
+      display: none; /* Hide the signup form by default */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="login-form">
+      <h2>Login</h2>
+      <form  action="/login"  method="post">
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        
+        <button type="submit">log in</button>
+        
+        <p>Don't have an account? <a href="#" id="signup-link">Sign up</a></p>
+      </form>
+    </div>
+   
+    <div id="signup-form">
+      <h2>Sign Up</h2>
+      <form  action="/signup" method="post">
+        <label for="fullname">Full Name:</label>
+        <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
+        
+        <label for="phone">phone:</label>
+        <input type="phone" id="phone" name="phone" placeholder="Enter your phone address" required>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        
+        <button type="submit">Sign Up</button>
+        
+        <p>Already have an account? <a href="#" id="login-link">Login</a></p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const loginForm = document.getElementById('login-form');
+    const signupForm = document.getElementById('signup-form');
+    const signupLink = document.getElementById('signup-link');
+    const loginLink = document.getElementById('login-link');
+
+    signupLink.addEventListener('click', function() {
+      loginForm.style.display = 'none';
+      signupForm.style.display = 'block';
+    });
+
+    loginLink.addEventListener('click', function() {
+      signupForm.style.display = 'none';
+      loginForm.style.display = 'block';
+    });
+  </script>
+</body>
+</html>
